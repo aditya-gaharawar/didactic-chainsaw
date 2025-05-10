@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>webspaceai</title>
+  <style>
+    :root {
+      --bg-gradient: linear-gradient(135deg, #fef6e4, #f9f3e5);
+      --text-color: #3c3c3c;
+      --card-bg: rgba(255, 255, 255, 0.8);
+      --shadow: 0 15px 30px rgba(0,0,0,0.1);
+      --transition: all 0.6s ease-in-out;
+      --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: var(--bg-gradient);
+      font-family: var(--font-main);
+      color: var(--text-color);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .card {
+      background: var(--card-bg);
+      padding: 2.5rem;
+      border-radius: 1.5rem;
+      box-shadow: var(--shadow);
+      text-align: center;
+      max-width: 450px;
+      animation: fadeIn 1s ease-out forwards;
+      opacity: 0;
+    }
+
+    .logo {
+      width: 100px;
+      height: auto;
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      font-size: 1.4rem;
+      margin-bottom: 1.2rem;
+      opacity: 0;
+      animation: fadeIn 1s ease 0.5s forwards;
+    }
+
+    p.quote {
+      font-style: italic;
+      font-size: 0.95rem;
+      color: #555;
+      opacity: 0;
+      animation: fadeIn 1s ease 1s forwards;
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+
+    /* Studio Ghibli-style floating leaves */
+    .leaf {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: url('https://upload.wikimedia.org/wikipedia/commons/2/29/Leaf_icon_-_green.svg') no-repeat center center;
+      background-size: contain;
+      animation: floatLeaf 10s infinite linear;
+      opacity: 0.2;
+    }
+
+    @keyframes floatLeaf {
+      0% {
+        transform: translateY(-50px) rotate(0deg);
+        opacity: 0.2;
+      }
+      100% {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+  </style>
+  <script>
+    const quotes = [
+      "You cannot change what you are, only what you do. — Princess Mononoke",
+      "Always believe in yourself. Do this and no matter where you are, you will have nothing to fear. — The Cat Returns",
+      "Life is suffering. It is hard. The world is cursed. But still, you find reasons to keep living. — Princess Mononoke",
+      "They say that the best blaze burns brightest when circumstances are at their worst. — Howl’s Moving Castle"
+    ];
+
+    window.onload = () => {
+      const quote = quotes[Math.floor(Math.random() * quotes.length)];
+      document.getElementById("ghibli-quote").textContent = quote;
+
+      // Generate floating leaves
+      for (let i = 0; i < 10; i++) {
+        const leaf = document.createElement('div');
+        leaf.className = 'leaf';
+        leaf.style.left = Math.random() * 100 + 'vw';
+        leaf.style.animationDelay = Math.random() * 10 + 's';
+        document.body.appendChild(leaf);
+      }
+    };
+  </script>
+</head>
+<body>
+  <div class="card">
+    <h1>This website is not available in your country.</h1>
+    <img src="https://cdn1.webspaceai.in/Untitled__1_-removebg-preview.png" alt="Logo" class="logo">
+    <p class="quote" id="ghibli-quote"></p>
+  </div>
+</body>
+</html>
