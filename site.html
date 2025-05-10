@@ -93,6 +93,13 @@
       }
     }
   </style>
+</head>
+<body>
+  <div class="card">
+    <h1>This website is not available in your country.</h1>
+    <img src="https://cdn1.webspaceai.in/Untitled__1_-removebg-preview.png" alt="Logo" class="logo">
+    <p class="quote" id="ghibli-quote"></p>
+  </div>
   <script>
     const quotes = [
       "You cannot change what you are, only what you do. — Princess Mononoke",
@@ -101,26 +108,17 @@
       "They say that the best blaze burns brightest when circumstances are at their worst. — Howl’s Moving Castle"
     ];
 
-    window.onload = () => {
-      const quote = quotes[Math.floor(Math.random() * quotes.length)];
-      document.getElementById("ghibli-quote").textContent = quote;
+    const quote = quotes[Math.floor(Math.random() * quotes.length)];
+    document.getElementById("ghibli-quote").textContent = quote;
 
-      // Generate floating leaves
-      for (let i = 0; i < 10; i++) {
-        const leaf = document.createElement('div');
-        leaf.className = 'leaf';
-        leaf.style.left = Math.random() * 100 + 'vw';
-        leaf.style.animationDelay = Math.random() * 10 + 's';
-        document.body.appendChild(leaf);
-      }
-    };
+    // Generate floating leaves
+    for (let i = 0; i < 10; i++) {
+      const leaf = document.createElement('div');
+      leaf.className = 'leaf';
+      leaf.style.left = Math.random() * 100 + 'vw';
+      leaf.style.animationDelay = Math.random() * 10 + 's';
+      document.body.appendChild(leaf);
+    }
   </script>
-</head>
-<body>
-  <div class="card">
-    <h1>This website is not available in your country.</h1>
-    <img src="https://cdn1.webspaceai.in/Untitled__1_-removebg-preview.png" alt="Logo" class="logo">
-    <p class="quote" id="ghibli-quote"></p>
-  </div>
 </body>
 </html>
